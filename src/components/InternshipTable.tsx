@@ -1,5 +1,4 @@
 import type { Internship } from '../types';
-import { getPriorityColor } from '../utils/helpers';
 
 interface Props {
   data: Internship[];

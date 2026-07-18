@@ -1,5 +1,4 @@
 import type { Internship } from '../types';
-import { getPriorityColor } from '../utils/helpers';
 import { getEstimatedSalary } from '../utils/salaryHelper';
 
 interface Props {
