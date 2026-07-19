@@ -83,6 +83,7 @@ export default function FilterBar({
         <div className="filter-actions">
           <div className="sort-group">
             {([
+              ['skorTotal', 'Skor'],
               ['kuota', 'Kuota'],
               ['perusahaan', 'Nama'],
             ] as [SortField, string][]).map(([field, label]) => (

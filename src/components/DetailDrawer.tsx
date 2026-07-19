@@ -1,5 +1,6 @@
 import type { Internship } from '../types';
 import { getEstimatedSalary } from '../utils/salaryHelper';
+import { getPriorityColor, getPriorityBg, getPriorityBorder } from '../utils/helpers';
 
 interface Props {
   item: Internship | null;
@@ -9,7 +10,13 @@ interface Props {
 export default function DetailDrawer({ item, onClose }: Props) {
   if (!item) return null;
 
-
+  const scoreCategories = [
+    { label: 'Jurusan', value: item.skorJurusan, max: 25 },
+    { label: 'Posisi', value: item.skorPosisi, max: 30 },
+    { label: 'Portofolio', value: item.skorPortofolio, max: 15 },
+    { label: 'Perusahaan', value: item.skorPerusahaan, max: 15 },
+    { label: 'Kuota', value: item.skorKuota, max: 10 },
+  ];
 
   return (
     <>
@@ -27,6 +34,40 @@ export default function DetailDrawer({ item, onClose }: Props) {
           {/* Company & Position */}
           <h2 className="drawer-company" style={{ marginTop: '10px' }}>{item.perusahaan}</h2>
           <p className="drawer-position">{item.posisi}</p>
+
+          {/* Score Badge */}
+          <div className="drawer-score-section">
+            <span
+              className="drawer-score-badge"
+              style={{
+                color: getPriorityColor(item.prioritas),
+                background: getPriorityBg(item.prioritas),
+                border: `1px solid ${getPriorityBorder(item.prioritas)}`,
+              }}
+            >
+              {item.prioritas} · {item.skorTotal}
+            </span>
+            <span className="drawer-score-total-label">dari 95 poin</span>
+          </div>
+
+          {/* Score Breakdown */}
+          <div className="drawer-score-breakdown">
+            {scoreCategories.map(cat => (
+              <div key={cat.label} className="drawer-score-row">
+                <span className="drawer-score-row-label">{cat.label}</span>
+                <div className="drawer-score-bar-wrap">
+                  <div
+                    className="drawer-score-bar-fill"
+                    style={{
+                      width: `${(cat.value / cat.max) * 100}%`,
+                      background: getPriorityColor(item.prioritas),
+                    }}
+                  />
+                </div>
+                <span className="drawer-score-row-val">{cat.value}<span className="drawer-score-row-max">/{cat.max}</span></span>
+              </div>
+            ))}
+          </div>
 
           {/* Website */}
           {item.websitePerusahaan && item.websitePerusahaan !== 'Belum dicatat' && (

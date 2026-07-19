@@ -6,7 +6,7 @@ import pandas as pd
 import json
 import os
 
-EXCEL_PATH = os.path.join(os.path.dirname(__file__), '..', '..', 'Database_Profesional_MagangHub_41_Screenshot.xlsx')
+EXCEL_PATH = os.path.join(os.path.dirname(__file__), '..', 'Database_Profesional_MagangHub_41_Screenshot.xlsx')
 OUTPUT_PATH = os.path.join(os.path.dirname(__file__), '..', 'src', 'data', 'internships.json')
 
 df = pd.read_excel(EXCEL_PATH, skiprows=2)

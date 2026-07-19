@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
-import type { Internship, Filters, SortConfig, ViewMode } from "./types";
+import type { Internship, Filters, SortConfig, SortField, ViewMode } from "./types";
 import internshipsData from "./data/internships.json";
 
 import DashboardHeader from "./components/DashboardHeader";
@@ -40,8 +40,8 @@ function App() {
   });
 
   const [sort, setSort] = useState<SortConfig>({
-    field: "no" as any,
-    direction: "asc",
+    field: "skorTotal" as SortField,
+    direction: "desc",
   });
   const [viewMode, setViewMode] = useState<ViewMode>("card");
   const [selectedItem, setSelectedItem] = useState<Internship | null>(null);
@@ -77,8 +77,8 @@ function App() {
     // Sort
     result.sort((a, b) => {
       let cmp = 0;
-      if (sort.field as string === "no") {
-        cmp = a.no - b.no;
+      if (sort.field === "skorTotal") {
+        cmp = a.skorTotal - b.skorTotal;
       } else if (sort.field === "kuota") {
         cmp = a.kuota - b.kuota;
       } else if (sort.field === "perusahaan") {

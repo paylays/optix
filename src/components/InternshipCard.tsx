@@ -1,4 +1,5 @@
 import type { Internship } from '../types';
+import { getPriorityColor, getPriorityBg, getPriorityBorder } from '../utils/helpers';
 
 interface Props {
   item: Internship;
@@ -20,7 +21,19 @@ export default function InternshipCard({ item, index, onClick }: Props) {
       tabIndex={0}
       onKeyDown={e => e.key === 'Enter' && onClick()}
     >
-      <h4 className="card-company" style={{ marginTop: '0px' }}>{item.perusahaan}</h4>
+      <div className="card-header-row">
+        <h4 className="card-company">{item.perusahaan}</h4>
+        <span
+          className="card-score-badge"
+          style={{
+            color: getPriorityColor(item.prioritas),
+            background: getPriorityBg(item.prioritas),
+            border: `1px solid ${getPriorityBorder(item.prioritas)}`,
+          }}
+        >
+          {item.prioritas} · {item.skorTotal}
+        </span>
+      </div>
       <p className="card-position">{item.posisi}</p>
 
       <div className="card-tags">

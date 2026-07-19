@@ -1,4 +1,5 @@
 import type { Internship } from '../types';
+import { getPriorityColor, getPriorityBg, getPriorityBorder } from '../utils/helpers';
 
 interface Props {
   data: Internship[];
@@ -17,6 +18,7 @@ export default function InternshipTable({ data, onRowClick }: Props) {
             <th>Tipe</th>
             <th>Lokasi</th>
             <th>Kuota</th>
+            <th>Skor</th>
           </tr>
         </thead>
         <tbody>
@@ -34,6 +36,18 @@ export default function InternshipTable({ data, onRowClick }: Props) {
               </td>
               <td className="table-location">{item.kotaKabupaten}</td>
               <td className="table-kuota">{item.kuota}</td>
+              <td>
+                <span
+                  className="table-score-badge"
+                  style={{
+                    color: getPriorityColor(item.prioritas),
+                    background: getPriorityBg(item.prioritas),
+                    border: `1px solid ${getPriorityBorder(item.prioritas)}`,
+                  }}
+                >
+                  {item.prioritas} · {item.skorTotal}
+                </span>
+              </td>
             </tr>
           ))}
         </tbody>

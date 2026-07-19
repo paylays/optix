@@ -1498,6 +1498,56 @@
   },
   {
     "no": 37,
+    "perusahaan": "PT Televisi Transformasi Indonesia",
+    "posisi": "Fullstack Web Developer - HRIS",
+    "kotaKabupaten": "Kota Adm. Jakarta Selatan",
+    "provinsi": "DKI Jakarta",
+    "jenisPerusahaan": "Swasta",
+    "pendidikan": "D3/S1",
+    "kuota": 1,
+    "jurusanDiterima": [
+      "Teknik Informatika",
+      "Pendidikan Ilmu Komputer",
+      "Sistem Informasi"
+    ],
+    "skillDibutuhkan": [
+      "Frontend",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Bootstrap",
+      "React/Vue",
+      "Backend",
+      "Laravel",
+      "Node.js",
+      ".NET",
+      "MySQL",
+      "PostgreSQL",
+      "REST API",
+      "Testing"
+    ],
+    "kategoriPosisi": "Full Stack / HRIS",
+    "websitePerusahaan": "https://www.transtv.co.id",
+    "batch": "Batch 4",
+    "statusUnik": "Duplikat screenshot #36",
+    "skorJurusan": 25,
+    "skorPosisi": 30,
+    "skorPortofolio": 8,
+    "skorPerusahaan": 10,
+    "skorKuota": 4,
+    "skorTotal": 77,
+    "prioritas": "B",
+    "statusLamaran": "Belum Lamar",
+    "catatanPersiapan": [
+      "Perlu Laravel/PHP",
+      "Perlu SQL/Database",
+      "Perlu REST API",
+      "Perlu React/Vue",
+      "Perlu Testing"
+    ]
+  },
+  {
+    "no": 38,
     "perusahaan": "PT Trans Berita Bisnis",
     "posisi": "IT Research & Development",
     "kotaKabupaten": "Kota Adm. Jakarta Selatan",
@@ -1537,7 +1587,7 @@
     ]
   },
   {
-    "no": 38,
+    "no": 39,
     "perusahaan": "PT Uni-Charm Indonesia Tbk",
     "posisi": "IT Sistem Developer Intern",
     "kotaKabupaten": "Kab. Mojokerto",
@@ -1580,7 +1630,7 @@
     ]
   },
   {
-    "no": 39,
+    "no": 40,
     "perusahaan": "PT Tri Adi Bersama",
     "posisi": "FULLSTACK DEVELOPER INTERN",
     "kotaKabupaten": "Kota Adm. Jakarta Selatan",
@@ -1620,7 +1670,7 @@
     ]
   },
   {
-    "no": 40,
+    "no": 41,
     "perusahaan": "Akebono Brake Astra Indonesia",
     "posisi": "IT (System Development)",
     "kotaKabupaten": "Kota Adm. Jakarta Utara",
