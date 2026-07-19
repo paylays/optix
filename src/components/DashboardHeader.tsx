@@ -1,9 +1,10 @@
 interface Props {
   theme: "dark" | "light";
   toggleTheme: () => void;
+  onInfoClick: () => void;
 }
 
-export default function DashboardHeader({ theme, toggleTheme }: Props) {
+export default function DashboardHeader({ theme, toggleTheme, onInfoClick }: Props) {
   return (
     <header className="dashboard-header">
       <div className="header-content">
@@ -53,6 +54,17 @@ export default function DashboardHeader({ theme, toggleTheme }: Props) {
                 <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
               </svg>
             )}
+          </button>
+          <button
+            className="theme-toggle-btn"
+            onClick={onInfoClick}
+            title="Panduan OPTIX"
+            aria-label="Buka panduan"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 16v-4M12 8h.01" />
+            </svg>
           </button>
           <div className="header-meta">
             <span className="header-badge">MagangHub</span>

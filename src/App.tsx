@@ -10,6 +10,8 @@ import ProvinceChart from "./components/Charts/ProvinceChart";
 import InternshipCard from "./components/InternshipCard";
 import InternshipTable from "./components/InternshipTable";
 import DetailDrawer from "./components/DetailDrawer";
+import InfoModal from "./components/InfoModal";
+import ProfileCard from "./components/ProfileCard";
 
 const rawData: Internship[] = internshipsData as Internship[];
 
@@ -18,6 +20,16 @@ function App() {
     const saved = localStorage.getItem('optix-theme');
     return (saved === 'light' || saved === 'dark') ? saved : 'light';
   });
+
+  const [isInfoOpen, setIsInfoOpen] = useState<boolean>(() => {
+    return !localStorage.getItem('optix-visited');
+  });
+
+  const openInfo = () => setIsInfoOpen(true);
+  const closeInfo = () => {
+    localStorage.setItem('optix-visited', '1');
+    setIsInfoOpen(false);
+  };
 
   useEffect(() => {
     localStorage.setItem('optix-theme', theme);
@@ -99,7 +111,8 @@ function App() {
 
   return (
     <div className="app">
-      <DashboardHeader theme={theme} toggleTheme={toggleTheme} />
+      <DashboardHeader theme={theme} toggleTheme={toggleTheme} onInfoClick={openInfo} />
+      <ProfileCard />
       <MetricCards data={filteredData} />
       <FilterBar
         filters={filters}
@@ -150,6 +163,9 @@ function App() {
 
       {/* Detail Drawer */}
       <DetailDrawer item={selectedItem} onClose={() => setSelectedItem(null)} />
+
+      {/* Info / Onboarding Modal */}
+      <InfoModal isOpen={isInfoOpen} onClose={closeInfo} />
     </div>
   );
 }
