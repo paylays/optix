@@ -39,7 +39,7 @@ export default function MetricCards({ data }: Props) {
       <div className="metric-card" style={{ animationDelay: '0.15s' }}>
         <div className="metric-label">Rata-rata Skor</div>
         <div className="metric-value">{metrics.avgSkor}</div>
-        <div className="metric-sub">dari 90 poin</div>
+        <div className="metric-sub">dari 95 poin</div>
       </div>
     </div>
   );

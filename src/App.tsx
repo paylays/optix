@@ -95,6 +95,8 @@ function App() {
         cmp = a.kuota - b.kuota;
       } else if (sort.field === "perusahaan") {
         cmp = a.perusahaan.localeCompare(b.perusahaan);
+      } else if (sort.field === "no") {
+        cmp = a.no - b.no;
       }
       return sort.direction === "desc" ? -cmp : cmp;
     });
@@ -109,6 +111,15 @@ function App() {
     document.body.style.overflow = "";
   }
 
+  const handleViewModeChange = (mode: ViewMode) => {
+    setViewMode(mode);
+    if (mode === "table") {
+      setSort({ field: "no", direction: "asc" });
+    } else {
+      setSort({ field: "skorTotal", direction: "desc" });
+    }
+  };
+
   return (
     <div className="app">
       <DashboardHeader theme={theme} toggleTheme={toggleTheme} onInfoClick={openInfo} />
@@ -121,7 +132,7 @@ function App() {
         data={rawData}
         onFiltersChange={setFilters}
         onSortChange={setSort}
-        onViewModeChange={setViewMode}
+        onViewModeChange={handleViewModeChange}
         resultCount={filteredData.length}
       />
 

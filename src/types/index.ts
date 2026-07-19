@@ -24,7 +24,7 @@ export interface Internship {
   catatanPersiapan: string[];
 }
 
-export type SortField = 'skorTotal' | 'kuota' | 'perusahaan';
+export type SortField = 'skorTotal' | 'kuota' | 'perusahaan' | 'no';
 export type SortDirection = 'asc' | 'desc';
 export type ViewMode = 'card' | 'table';
 
