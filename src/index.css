@@ -888,6 +888,9 @@ a:hover {
   padding: var(--space-lg);
   animation: slideUp 0.5s ease 0.3s both;
   transition: border-color var(--transition-fast);
+  /* Prevent chart from breaking out of bounds */
+  overflow: hidden;
+  min-width: 0;
 }
 
 .chart-panel:hover {
@@ -900,6 +903,27 @@ a:hover {
   color: var(--text-secondary);
   letter-spacing: 0.02em;
   margin-bottom: var(--space-md);
+}
+
+/* Wrapper for bar/line charts — sets the render height */
+.chart-canvas-wrap {
+  position: relative;
+  width: 100%;
+  height: 340px;
+  overflow: hidden;
+}
+
+/* Province donut + legend layout */
+.province-chart-layout {
+  display: flex;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.province-donut-wrap {
+  width: 160px;
+  height: 160px;
+  flex-shrink: 0;
 }
 
 .province-legend {
@@ -941,11 +965,36 @@ a:hover {
   text-align: right;
 }
 
-@media (max-width: 768px) {
+/* ── Responsive: Tablet (≤ 900px) ── */
+@media (max-width: 900px) {
   .charts-grid {
     grid-template-columns: 1fr;
   }
+
+  .chart-canvas-wrap {
+    height: 300px;
+  }
 }
+
+/* ── Responsive: Mobile (≤ 600px) ── */
+@media (max-width: 600px) {
+  .chart-canvas-wrap {
+    height: 260px;
+  }
+
+  .province-chart-layout {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-md);
+  }
+
+  .province-donut-wrap {
+    width: 140px;
+    height: 140px;
+    align-self: center;
+  }
+}
+
 
 /* ── 5. Internship Card Component ── */
 .internship-card {
